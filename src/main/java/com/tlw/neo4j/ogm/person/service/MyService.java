@@ -1,7 +1,7 @@
-package com.tlw.neo4j.person.service;
+package com.tlw.neo4j.ogm.person.service;
 
-import com.tlw.neo4j.person.domain.Person;
-import com.tlw.neo4j.person.repository.PersonRepository;
+import com.tlw.neo4j.ogm.person.domain.Person;
+import com.tlw.neo4j.ogm.person.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,6 +27,7 @@ public class MyService {
 
         // Persist entities and relationships to graph database
         repository.save(emil);
+        repository.save(jon);
 
 //        for (Person friend : emil.getFriends()) {
 //            System.out.println("Friend: " + friend);
