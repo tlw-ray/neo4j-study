@@ -1,4 +1,4 @@
-package com.tlw.neo4j.person.domain;
+package com.tlw.neo4j.ogm.person.domain;
 
 import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Relationship;
@@ -14,7 +14,7 @@ public class Person {
     private Long id;
     private String name;
 
-    @Relationship(type = "FRIEND", direction = "OUTGOING")
+    @Relationship(type = "FRIEND")
     private Set<Person> friends;
 
     public Person() {}
