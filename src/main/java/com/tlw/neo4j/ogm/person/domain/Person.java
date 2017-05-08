@@ -22,7 +22,7 @@ public class Person {
 
     public void knows(Person friend) {
         if(friends == null){
-            friends = new LinkedHashSet<Person>();
+            friends = new LinkedHashSet();
         }
         friends.add(friend);
     }

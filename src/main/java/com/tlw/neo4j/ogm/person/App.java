@@ -1,7 +1,6 @@
-package com.tlw.neo4j.person;
+package com.tlw.neo4j.ogm.person;
 
-import com.tlw.neo4j.person.repository.PersonRepository;
-import com.tlw.neo4j.person.service.MyService;
+import com.tlw.neo4j.ogm.person.service.MyService;
 import org.neo4j.ogm.session.SessionFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -15,15 +14,15 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  * Created by tlw@winning.com.cn on 2017/5/4.
  */
 @Configuration
-@ComponentScan(basePackages = "com.tlw.neo4j.person")
-@EnableNeo4jRepositories(basePackages = "com.tlw.neo4j.person.repository")
+@ComponentScan(basePackages = "com.tlw.neo4j.ogm.person")
+@EnableNeo4jRepositories(basePackages = "com.tlw.neo4j.ogm.person.repository")
 @EnableTransactionManagement
-public class MyConfiguration {
+public class App {
 
     @Bean
     public SessionFactory sessionFactory() {
         // with domain entity base package(s)
-        return new SessionFactory("com.tlw.neo4j.person.domain");
+        return new SessionFactory("com.tlw.neo4j.ogm.person.domain");
     }
 
     @Bean
@@ -32,7 +31,7 @@ public class MyConfiguration {
     }
 
     public static void main(String[] args){
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(MyConfiguration.class);
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(App.class);
         MyService myService = context.getBean(MyService.class);
         myService.doWork();
     }
