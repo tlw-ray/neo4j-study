@@ -21,9 +21,12 @@ public class MyService {
         Person jon = new Person("Jon");
         Person emil = new Person("Emil");
         Person rod = new Person("Rod");
+        Person tom = new Person("Tom");
 
         emil.knows(jon);
         emil.knows(rod);
+
+        rod.knows(tom);
 
         // Persist entities and relationships to graph database
         repository.save(emil);
